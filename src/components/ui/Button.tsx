@@ -5,7 +5,7 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
-  onClick?: () => void; //// 基本的な関数の型定義 voidは何も返さない
+  onClick?: () => void;
   disabled?: boolean;
   type?: "button" | "submit";
   className?: string;
@@ -26,17 +26,26 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       className={clsx(
-        "font-semibold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2",
+        "font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 cursor-pointer",
         {
-          "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500":
-            variant === "primary",
-          "bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500":
-            variant === "secondary",
-          "border-2 border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500":
-            variant === "outline",
+          // Primary variant
+          "bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg focus:ring-blue-500":
+            variant === "primary" && !disabled,
+
+          // Secondary variant
+          "bg-gray-600 text-white hover:bg-gray-700 hover:shadow-lg focus:ring-gray-500":
+            variant === "secondary" && !disabled,
+
+          // Outline variant
+          "border-2 border-blue-600 text-blue-600 bg-transparent hover:bg-blue-50 hover:shadow-md focus:ring-blue-500":
+            variant === "outline" && !disabled,
+
+          // Sizes
           "px-3 py-1.5 text-sm": size === "sm",
           "px-4 py-2.5 text-base": size === "md",
           "px-6 py-3 text-lg": size === "lg",
+
+          // Disabled state
           "opacity-50 cursor-not-allowed": disabled,
         },
         className
