@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Menu, X, User } from "lucide-react";
-import { Button } from "@/components/ui";
 
 interface HeaderProps {
   currentView: string;

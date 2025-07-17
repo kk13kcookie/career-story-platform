@@ -4,7 +4,7 @@ import { Header } from "@/components/layout";
 import { StoryCard } from "@/components/story";
 import { Button, Card, Input } from "@/components/ui";
 import { mockStories, mockUser } from "@/data/mockData";
-import { Story, User, StoryFilters } from "@/types";
+import { Story, User } from "@/types";
 
 export default function Home() {
   const [currentView, setCurrentView] = useState("home");
