@@ -15,6 +15,7 @@ export default function Home() {
   const [user, setUser] = useState<User | null>(null);
   const [stories, setStories] = useState<Story[]>(mockStories);
 
+  // 以下は既存のコードそのまま...
   // ユーザー状態をシミュレート
   useEffect(() => {
     setUser(mockUser);

@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { Menu, X, User } from "lucide-react";
 
+interface UserType {
+  id: string;
+  name: string;
+  avatar: string;
+  isPremium: boolean;
+}
+
 interface HeaderProps {
   currentView: string;
   setCurrentView: (view: string) => void;
-  user?: any;
+  user?: UserType | null;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -82,7 +89,6 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* モバイルメニュー */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="px-2 pt-2 pb-3 space-y-1">
