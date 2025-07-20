@@ -17,6 +17,12 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, onLike }) => {
         return "転職失敗談";
       case "career-change":
         return "キャリアチェンジ";
+      case "side-business":
+        return "複業";
+      case "side-job":
+        return "副業";
+      case "startup":
+        return "起業";
       default:
         return "";
     }

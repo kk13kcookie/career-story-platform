@@ -10,7 +10,13 @@ export default function Home() {
   const [currentView, setCurrentView] = useState("home");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<
-    "all" | "success" | "failure" | "career-change"
+    | "all"
+    | "success"
+    | "failure"
+    | "career-change"
+    | "side-business"
+    | "side-job"
+    | "startup"
   >("all");
   const [user, setUser] = useState<User | null>(null);
   const [stories, setStories] = useState<Story[]>(mockStories);
@@ -52,6 +58,12 @@ export default function Home() {
         return "転職失敗談";
       case "career-change":
         return "キャリアチェンジ";
+      case "side-business":
+        return "複業";
+      case "side-job":
+        return "副業";
+      case "startup":
+        return "起業";
       default:
         return "すべて";
     }
@@ -152,21 +164,29 @@ export default function Home() {
               />
             </div>
             <div className="flex gap-2 flex-wrap">
-              {(["all", "success", "failure", "career-change"] as const).map(
-                (category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-3 rounded-lg font-medium transition-colors ${
-                      selectedCategory === category
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                    }`}
-                  >
-                    {getCategoryLabel(category)}
-                  </button>
-                )
-              )}
+              {(
+                [
+                  "all",
+                  "success",
+                  "failure",
+                  "career-change",
+                  "side-business",
+                  "side-job",
+                  "startup",
+                ] as const
+              ).map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-3 rounded-lg font-medium transition-colors ${
+                    selectedCategory === category
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  {getCategoryLabel(category)}
+                </button>
+              ))}
             </div>
           </div>
         </Card>
