@@ -73,11 +73,7 @@ export default function Home() {
   if (currentView !== "home") {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Header
-          currentView={currentView}
-          setCurrentView={setCurrentView}
-          user={user}
-        />
+        <Header currentView={currentView} setCurrentView={setCurrentView} />
         <div className="max-w-4xl mx-auto px-4 py-8">
           <Card className="text-center py-16">
             <h2 className="text-3xl font-bold mb-4 text-gray-900">
@@ -103,11 +99,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header
-        currentView={currentView}
-        setCurrentView={setCurrentView}
-        user={user}
-      />
+      <Header currentView={currentView} setCurrentView={setCurrentView} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* ヒーローセクション */}
